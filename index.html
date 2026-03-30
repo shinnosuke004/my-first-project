@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像検索ブックマーク</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: #0f0f0f;
+      color: #e8e8e8;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-left: 3px solid #555;
+      padding-left: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 8px;
+    }
+    a.card {
+      display: block;
+      background: #1e1e1e;
+      border: 1px solid #2e2e2e;
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      transition: background 0.15s, border-color 0.15s;
+      word-break: break-word;
+    }
+    a.card:hover, a.card:active {
+      background: #2a2a2a;
+      border-color: #4a90e2;
+      color: #fff;
+    }
+    .card .icon {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔍 画像検索ブックマーク</h1>
+
+<div class="section">
+  <div class="section-title">映像・アート</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=%E3%82%B4%E3%83%80%E3%83%BC%E3%83%AB%E3%81%AE%E7%94%BB%E4%BD%9C%E3%82%8A&tbm=isch" target="_blank"><span class="icon">🎬</span>ゴダールの画作り</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%B4%E3%82%A3%E3%83%A0%E3%83%BB%E3%83%B4%E3%82%A7%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9+%E5%86%99%E7%9C%9F%E9%9B%86&tbm=isch" target="_blank"><span class="icon">📷</span>ヴィム・ヴェンダース写真集</a>
+    <a class="card" href="https://www.google.com/search?q=VFX&tbm=isch" target="_blank"><span class="icon">✨</span>VFX</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%A2%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%BB%E3%82%B6%E3%83%BB%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B9+%E8%89%B2%E5%BD%A9%E8%A8%AD%E8%A8%88&tbm=isch" target="_blank"><span class="icon">🕷️</span>スパイダーバース色彩設計</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%B8%E3%83%96%E3%83%AA+%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88&tbm=isch" target="_blank"><span class="icon">🌿</span>ジブリレイアウト</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%87%E3%83%B4%E3%82%A3%E3%83%83%E3%83%89%E3%83%BB%E3%83%AA%E3%83%B3%E3%83%81+%E3%82%A2%E3%83%BC%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>デヴィッド・リンチアート</a>
+    <a class="card" href="https://www.google.com/search?q=%E6%A5%B3%E5%9B%B3%E3%81%8B%E3%81%9A%E3%81%8A+%E7%B5%B5%E7%94%BB&tbm=isch" target="_blank"><span class="icon">🖼️</span>楳図かずお絵画</a>
+    <a class="card" href="https://www.google.com/search?q=%E5%B2%A9%E4%BA%95%E4%BF%8A%E4%BA%8C+%E3%83%A9%E3%83%96%E3%83%AC%E3%82%BF%E3%83%BC&tbm=isch" target="_blank"><span class="icon">💌</span>岩井俊二『ラブレター』</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">イラストレーター・アーティスト</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=%E5%A1%9A%E7%94%B0%E8%B2%B4%E5%A3%AB&tbm=isch" target="_blank"><span class="icon">🎨</span>塚田貴士</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%81%E3%81%8C%E3%81%BF%E3%81%91%E3%81%84%E3%81%94&tbm=isch" target="_blank"><span class="icon">🎨</span>めがみけいご</a>
+    <a class="card" href="https://www.google.com/search?q=%E8%A5%BF%E6%9D%91%E5%85%B8%E5%AD%90+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>西村典子</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B376&tbm=isch" target="_blank"><span class="icon">🐉</span>ドラゴン76</a>
+    <a class="card" href="https://www.google.com/search?q=%E6%9D%89%E6%9C%AC%E4%B8%80%E6%96%87+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>杉本一文</a>
+    <a class="card" href="https://www.google.com/search?q=%E5%B6%8B%E7%94%B0%E9%87%8C%E8%8B%B1+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>嶋田里英</a>
+    <a class="card" href="https://www.google.com/search?q=%E9%B9%BF%E5%AD%90+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🦌</span>鹿子</a>
+    <a class="card" href="https://www.google.com/search?q=%E9%BB%92%E7%94%B0%E5%BE%81%E5%A4%AA%E9%83%8E+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>黒田征太郎</a>
+    <a class="card" href="https://www.google.com/search?q=tao%E3%81%AE%E7%A9%BA%E6%83%B3%E3%83%9B%E3%83%86%E3%83%AB&tbm=isch" target="_blank"><span class="icon">🏨</span>taoの空想ホテル</a>
+    <a class="card" href="https://www.google.com/search?q=%E4%BA%95%E4%B8%8A%E7%9B%B4%E4%B9%85+%E3%82%A4%E3%83%AB%E3%83%90%E3%82%B9&tbm=isch" target="_blank"><span class="icon">🌄</span>井上直久</a>
+    <a class="card" href="https://www.google.com/search?q=G%C3%A9rard+DuBois+illustration&tbm=isch" target="_blank"><span class="icon">🎨</span>Gérard DuBois</a>
+    <a class="card" href="https://www.google.com/search?q=panpanya+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🐟</span>panpanya</a>
+    <a class="card" href="https://www.google.com/search?q=zoe+hawk+illustration&tbm=isch" target="_blank"><span class="icon">🦅</span>zoe hawk</a>
+    <a class="card" href="https://www.google.com/search?q=Kou+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC&tbm=isch" target="_blank"><span class="icon">🎨</span>Kou</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%81%A4%E3%81%A0%E3%81%97%E3%82%87%E3%81%86%E3%81%B8%E3%81%84+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>つだしょうへい</a>
+    <a class="card" href="https://www.google.com/search?q=%E6%B0%B8%E4%BA%95%E5%8D%9A+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🌅</span>永井博</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%A2%E3%83%AA%E3%83%8A%E3%82%AC%E3%83%A8%E3%82%A6+%E3%83%8E%E3%83%BC%E3%83%88&tbm=isch" target="_blank"><span class="icon">📓</span>モリナガヨウノート</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">キャラクター・コンテンツ</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=%E3%83%94%E3%83%BC%E3%83%9D%E3%83%BC%E3%82%B6%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%BC&tbm=isch" target="_blank"><span class="icon">🎭</span>ピーポーザパフォーマー</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%A4%E3%83%88%E3%82%A6%E3%82%B7%E3%83%A5%E3%82%A6%E3%82%B8+%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88&tbm=isch" target="_blank"><span class="icon">🎨</span>イトウシュウジ</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%81%93%E3%81%9F%E9%89%84%E9%81%93+%E7%B5%B5%E6%9C%AC&tbm=isch" target="_blank"><span class="icon">🚂</span>こた鉄道絵本</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%AF%E3%82%BB%E3%83%8A%E3%82%AD%E3%82%B9+%E9%9F%B3%E6%A5%BD&tbm=isch" target="_blank"><span class="icon">🎵</span>クセナキス</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%9C%E3%83%9C%E3%83%9C%E3%83%BC%E3%83%9C%E3%83%BB%E3%83%9C%E3%83%BC%E3%83%9C%E3%83%9C&tbm=isch" target="_blank"><span class="icon">💥</span>ボボボーボ・ボーボボ</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E6%80%AA%E5%A5%87%E9%A4%A8&tbm=isch" target="_blank"><span class="icon">👻</span>パノラマ怪奇館</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%94%E3%82%AF%E3%82%BB%E3%83%AB%E3%82%A2%E3%83%BC%E3%83%88+%E9%9B%86&tbm=isch" target="_blank"><span class="icon">🕹️</span>ピクセルアート集</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">デザイン・文具・カルチャー</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=%E3%82%84%E3%82%84%E3%81%93%E3%81%97%E3%81%8F%E3%81%AA%E3%81%84%E3%81%8A%E3%81%97%E3%82%8A%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9&tbm=isch" target="_blank"><span class="icon">✏️</span>ややこしくないおしりの書き方</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%B3+%E3%83%8E%E3%83%BC%E3%83%88&tbm=isch" target="_blank"><span class="icon">📔</span>ロールバン</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%A2%E3%83%AC%E3%82%B9%E3%82%AD%E3%83%B3+%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC&tbm=isch" target="_blank"><span class="icon">📒</span>モレスキンステッカー</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%B9%E3%82%B1%E3%83%9C%E3%83%BC+%E3%82%B9%E3%83%8E%E3%83%9C%E3%83%BC+%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3&tbm=isch" target="_blank"><span class="icon">🛹</span>スケボー・スノボーデザイン</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%96%E3%83%83%E3%82%AF%E3%82%A8%E3%83%B3%E3%83%89%E3%81%AE%E8%A1%97%E8%A7%92&tbm=isch" target="_blank"><span class="icon">📚</span>ブックエンドの街角</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%83%8B%E3%83%88%E3%83%AD%E3%83%9E%E3%82%BF%E3%83%BC&tbm=isch" target="_blank"><span class="icon">🎮</span>ニトロマター</a>
+    <a class="card" href="https://www.google.com/search?q=%E3%82%AA%E3%83%BC%E3%82%AF%E3%83%AA%E3%83%BC+%E8%BB%8A&tbm=isch" target="_blank"><span class="icon">🚗</span>オークリー車</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">建築・3D・ソフト</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=%E5%BB%BA%E7%AF%89%E5%AD%A6%E7%A7%91+%E5%8D%92%E8%AB%96+%E3%83%89%E3%83%AD%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0&tbm=isch" target="_blank"><span class="icon">🏛️</span>建築学科卒論</a>
+    <a class="card" href="https://www.google.com/search?q=%E5%BB%BA%E7%AF%89%E5%AE%B6+%E3%83%89%E3%83%AD%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0&tbm=isch" target="_blank"><span class="icon">✏️</span>建築家ドローイング</a>
+    <a class="card" href="https://www.google.com/search?q=BIM+%E5%BB%BA%E7%AF%89&tbm=isch" target="_blank"><span class="icon">🏗️</span>BIM</a>
+    <a class="card" href="https://www.google.com/search?q=Revit+%E5%BB%BA%E7%AF%89&tbm=isch" target="_blank"><span class="icon">🏗️</span>Revit</a>
+    <a class="card" href="https://www.google.com/search?q=Archicad+%E5%BB%BA%E7%AF%89&tbm=isch" target="_blank"><span class="icon">🏗️</span>Archicad</a>
+    <a class="card" href="https://www.google.com/search?q=Vectorworks+%E5%BB%BA%E7%AF%89&tbm=isch" target="_blank"><span class="icon">🏗️</span>Vectorworks</a>
+    <a class="card" href="https://www.google.com/search?q=LightWave+3D&tbm=isch" target="_blank"><span class="icon">💡</span>LightWave 3D</a>
+    <a class="card" href="https://www.google.com/search?q=Vector+Architects&tbm=isch" target="_blank"><span class="icon">🏛️</span>Vector Architects</a>
+    <a class="card" href="https://www.google.com/search?q=DXL+%E5%BB%BA%E7%AF%89&tbm=isch" target="_blank"><span class="icon">📐</span>DXL</a>
+    <a class="card" href="https://www.google.com/search?q=STL+3D+%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88&tbm=isch" target="_blank"><span class="icon">🖨️</span>STL</a>
+    <a class="card" href="https://www.google.com/search?q=%E5%BB%BA%E7%AF%89%E3%82%BD%E3%83%95%E3%83%88+%E7%84%A1%E6%96%99&tbm=isch" target="_blank"><span class="icon">💻</span>建築ソフト（無料）</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">ツール・クリエイター</div>
+  <div class="grid">
+    <a class="card" href="https://www.google.com/search?q=Vectary+3D&tbm=isch" target="_blank"><span class="icon">🔷</span>Vectary</a>
+    <a class="card" href="https://www.google.com/search?q=Adobe+Aero+AR&tbm=isch" target="_blank"><span class="icon">🔮</span>Adobe Aero</a>
+    <a class="card" href="https://www.google.com/search?q=Penpot+design&tbm=isch" target="_blank"><span class="icon">✏️</span>Penpot</a>
+    <a class="card" href="https://www.google.com/search?q=Satori+Graphics&tbm=isch" target="_blank"><span class="icon">🎨</span>Satori Graphics</a>
+    <a class="card" href="https://www.google.com/search?q=Ben+Emmett+illustration&tbm=isch" target="_blank"><span class="icon">🎨</span>Ben Emmett</a>
+    <a class="card" href="https://www.google.com/search?q=Luke+Pearson+illustration&tbm=isch" target="_blank"><span class="icon">🎨</span>Luke Pearson</a>
+    <a class="card" href="https://www.google.com/search?q=Big+Five+%E6%80%A7%E6%A0%BC&tbm=isch" target="_blank"><span class="icon">🧠</span>Big Five</a>
+  </div>
+</div>
+
+<p style="text-align:center;color:#555;font-size:0.7rem;margin-top:32px;">タップで Google 画像検索が開きます</p>
+
+</body>
+</html>
