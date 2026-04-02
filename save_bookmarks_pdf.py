@@ -16,12 +16,15 @@ from weasyprint import HTML
 
 
 BOOKMARKS_PLIST = Path.home() / "Library" / "Safari" / "Bookmarks.plist"
-OUTPUT_DIR = Path("pdfs")
+OUTPUT_DIR = Path("レポート")
 HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
+
+# Safari の内部フォルダ名（表示しない）
+SKIP_FOLDERS = {"BookmarksBar", "BookmarksMenu", "com.apple.ReadingList"}
 
 
 def read_safari_bookmarks(plist_path=BOOKMARKS_PLIST):
-    """Safari の Bookmarks.plist からすべてのブックマークを取得する"""
+    """Safari の Bookmarks.plist からフォルダ構造ごとにブックマークを取得する"""
     if not plist_path.exists():
         print(f"エラー: ブックマークファイルが見つかりません: {plist_path}")
         sys.exit(1)
@@ -30,49 +33,60 @@ def read_safari_bookmarks(plist_path=BOOKMARKS_PLIST):
         data = plistlib.load(f)
 
     bookmarks = []
-    _collect(data, bookmarks)
+    _collect(data, bookmarks, folder=None)
     return bookmarks
 
 
-def _collect(node, result):
-    """再帰的にブックマーク（URL）を収集する"""
+def _collect(node, result, folder):
+    """再帰的にブックマークを収集する。フォルダ名も記録する"""
     if not isinstance(node, dict):
         return
-    if node.get("WebBookmarkType") == "WebBookmarkTypeLeaf":
+
+    node_type = node.get("WebBookmarkType")
+
+    if node_type == "WebBookmarkTypeLeaf":
         url = node.get("URLString", "")
         title = node.get("URIDictionary", {}).get("title", "") or url
         if url.startswith("http"):
-            result.append({"title": title, "url": url})
-    for child in node.get("Children", []):
-        _collect(child, result)
+            result.append({"title": title, "url": url, "folder": folder or "（未分類）"})
+
+    elif node_type == "WebBookmarkTypeList":
+        folder_name = node.get("Title", "")
+        # Safari 内部フォルダはスキップし、ユーザー作成フォルダのみ使う
+        next_folder = folder_name if folder_name and folder_name not in SKIP_FOLDERS else folder
+        for child in node.get("Children", []):
+            _collect(child, result, folder=next_folder)
+
+    else:
+        for child in node.get("Children", []):
+            _collect(child, result, folder=folder)
 
 
-def safe_filename(title, max_len=80):
-    """タイトルをファイル名として使える形式に変換する"""
-    name = re.sub(r'[\\/:*?"<>|]', "_", title)
+def safe_name(name, max_len=80):
+    """フォルダ名・ファイル名として使える形式に変換する"""
+    name = re.sub(r'[\\/:*?"<>|]', "_", name)
     name = name.strip().strip(".")
     return name[:max_len] or "untitled"
 
 
-def save_pdf(title, url, output_dir, index, total):
-    """URL の内容を PDF として保存する"""
+def save_pdf(title, url, folder_dir, index, total):
+    """URL の内容を PDF として指定フォルダに保存する"""
     print(f"[{index}/{total}] {title}")
     print(f"         {url}")
     try:
         resp = requests.get(url, headers=HEADERS, timeout=20)
         resp.raise_for_status()
 
-        filename = safe_filename(title) + ".pdf"
-        output_path = output_dir / filename
+        filename = safe_name(title) + ".pdf"
+        output_path = folder_dir / filename
 
-        # 重複ファイル名を避ける
         counter = 1
         while output_path.exists():
-            output_path = output_dir / f"{safe_filename(title)}_{counter}.pdf"
+            output_path = folder_dir / f"{safe_name(title)}_{counter}.pdf"
             counter += 1
 
         HTML(string=resp.text, base_url=url).write_pdf(str(output_path))
-        print(f"         -> 保存完了: {output_path.name}\n")
+        print(f"         -> 保存完了: {folder_dir.name}/{output_path.name}\n")
         return True
 
     except requests.RequestException as e:
@@ -83,12 +97,18 @@ def save_pdf(title, url, output_dir, index, total):
 
 
 def select_bookmarks(bookmarks):
-    """ブックマーク一覧を表示して、保存したいものを選択させる"""
+    """フォルダ別にブックマーク一覧を表示して、保存したいものを選択させる"""
     print("ブックマーク一覧:\n")
+
+    current_folder = None
     for i, bm in enumerate(bookmarks, 1):
+        if bm["folder"] != current_folder:
+            current_folder = bm["folder"]
+            print(f"  【{current_folder}】")
         print(f"  {i:>3}. {bm['title']}")
         print(f"       {bm['url']}")
     print()
+
     print("保存したいブックマークの番号を入力してください。")
     print("  例: 1 3 5   （スペース区切り）")
     print("  例: 2-6     （範囲指定）")
@@ -120,8 +140,12 @@ def select_bookmarks(bookmarks):
 
         chosen = [bookmarks[n - 1] for n in sorted(selected)]
         print(f"\n以下の {len(chosen)} 件を保存します:")
+        current_folder = None
         for bm in chosen:
-            print(f"  - {bm['title']}")
+            if bm["folder"] != current_folder:
+                current_folder = bm["folder"]
+                print(f"  【{current_folder}】")
+            print(f"    - {bm['title']}")
         print()
         confirm = input("よろしいですか？ [y/N] > ").strip().lower()
         if confirm == "y":
@@ -145,11 +169,13 @@ def main():
     chosen = select_bookmarks(bookmarks)
 
     print("-" * 60)
-    print(f"PDFの保存先: {OUTPUT_DIR.resolve()}\n")
+    print(f"保存先: {OUTPUT_DIR.resolve()}\n")
 
     success = 0
     for i, bm in enumerate(chosen, 1):
-        if save_pdf(bm["title"], bm["url"], OUTPUT_DIR, i, len(chosen)):
+        folder_dir = OUTPUT_DIR / safe_name(bm["folder"])
+        folder_dir.mkdir(exist_ok=True)
+        if save_pdf(bm["title"], bm["url"], folder_dir, i, len(chosen)):
             success += 1
 
     print("-" * 60)
