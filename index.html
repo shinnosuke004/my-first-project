@@ -162,5 +162,36 @@
 
 <p style="text-align:center;color:#555;font-size:0.7rem;margin-top:32px;">タップで Google 画像検索が開きます</p>
 
+<div style="text-align:center;margin-top:20px;">
+  <button id="saveBtn" style="background:#2a2a2a;border:1px solid #4a90e2;color:#4a90e2;padding:10px 24px;border-radius:8px;font-size:0.85rem;cursor:pointer;">💾 ブックマークをファイルに保存</button>
+</div>
+
+<script>
+document.getElementById('saveBtn').addEventListener('click', function() {
+  var data = [];
+  document.querySelectorAll('.section').forEach(function(section) {
+    var sectionTitle = section.querySelector('.section-title').textContent.trim();
+    var bookmarks = [];
+    section.querySelectorAll('a.card').forEach(function(a) {
+      bookmarks.push({
+        name: a.textContent.replace(a.querySelector('.icon').textContent, '').trim(),
+        icon: a.querySelector('.icon').textContent.trim(),
+        url: a.href
+      });
+    });
+    data.push({ section: sectionTitle, bookmarks: bookmarks });
+  });
+
+  var json = JSON.stringify(data, null, 2);
+  var blob = new Blob([json], { type: 'application/json' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'bookmarks.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+</script>
+
 </body>
 </html>
