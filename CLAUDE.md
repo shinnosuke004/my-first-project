@@ -22,6 +22,14 @@
 
 - `archive/` : 使わなくなった過去の作業を退避する場所(削除はせず、まずここに移す)
 
+## 外部ツールの役割分担
+- **Notion**: 構造化データ(プロンプト・記録・タグ付け)の保存庫。MCP経由でClaude Codeから直接読み書きする。
+- **Google Drive**: 画像など容量の大きいファイルの倉庫。Notion側にはリンクとメモだけを記録する形で連携する。
+  - フォルダ: `my-first-project` (https://drive.google.com/drive/folders/1b7jYq4-ex7_caEngZeWWfpkIvZdeIlKp)
+    - `04-notion-integration_images` : プロンプト管理で生成した画像の置き場
+- **Obsidian**: 見送り中。ローカルMac常時起動が前提の連携方式しかなく、iPad中心の運用と相性が悪いため。将来Macでの作業を増やす場合に再検討する。
+- **CLAUDE.md / Skill**: 常にこのGitHubリポジトリ側の実ファイルとして管理する(Notion等に書いても自動では読み込まれない)。
+
 ## 進め方の方針
 - 4つのプロジェクトは順番に1つずつ進める。今は `04-notion-integration` に着手中。
 - 大きな設計判断が必要な場合は、作業を始める前にユーザーに確認する。
