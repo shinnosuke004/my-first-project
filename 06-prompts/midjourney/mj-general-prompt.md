@@ -1,23 +1,30 @@
-# Midjourney 汎用プロンプト(現行版)
+# Midjourney 汎用プロンプト(v1)
 
-Craft「mj汎用版P_v4」相当。実際に一番使っている版。
-
-## 実写系造形変換版
+Craft「mj汎用版P_v1」相当。街区全体を1つの都市として一括変換する初期版。
 
 completely re-render this entire image as a photorealistic render.
-preserve only the camera angle and the overall silhouette of the building cluster.
-the volumes themselves may be reproportioned and reshaped.
-redesign everything below that scale freely: window shapes and rhythm, edge and corner profiles, roofline details, railings, balconies, surface articulation, structural members, and all materials.
-adopt the formal vocabulary of the reference style itself, whatever it is - curves, arches, chamfers, monolithic slabs, or softened masses - and depart freely from the original's rectangular geometry.
-apply the same treatment to the surrounding buildings.
-photographic realism, physically accurate lighting, fine material detail.
-no illustration, no flat shading, no line art, no anime.  --s 1000  --chaos 100
 
-## イラスト系
+treat every building in the frame as one continuous city — the central
+tower and all surrounding blocks receive the identical redesign.
 
-this is a complete stylistic conversion, not a photo retouch.
-completely re-render every surface of this image in a new visual style.
-discard the original rendering medium entirely: no photographic texture,
-no original lighting, no original color palette.
-keep only the composition, camera angle, geometry, proportions, and
-object placement.  --s 1000  --chaos 100
+preserve the camera angle, the position and footprint of every building,
+and the overall silhouette of the central cluster. keep the same amount
+of sky visible as in the original. the volumes themselves may be
+reproportioned and reshaped.
+
+rebuild all architecture using the reference style's own construction
+logic — its structural units, how they join, how openings are cut, how
+elements stack. if the reference is angular, stay angular; if curved,
+curve; if ornamented, ornament.
+
+apply the reference's color palette directly and dominantly: its hues,
+its saturation level, its accent colors, on the buildings themselves.
+
+surfaces and weathering as the reference does them.
+
+lighting: practical lights, lit windows, and glowing signage as the
+reference shows them. keep the original's light direction, no sunrise
+or sunset light.
+
+match the reference's photographic character: film stock, grain,
+contrast, saturation, color cast, haze, exposure, and lens rendering.
