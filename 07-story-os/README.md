@@ -6,8 +6,14 @@
 
 - `story-os-file.md` : Story OSファイル(第一原理・16ビート・ゲームエンジンなど、物語理論の本体・語彙カタログ)。旧ファイル名: Story OS ファイル_v9.md
 - `story-os-prompt.md` : Story OSプロンプト(I/O契約・PHASE手順)。旧ファイル名: story os プロンプト_v9.md
+- `works/` : 個別作品ごとの設定資料(soft)。OSファイル・プロンプトの内容を、各作品に当てはめる際に使う
+  - `works/bb/soft.md` : BBの設定資料。旧ファイル名: BB soft_v7.md
+  - `works/bb/sub-soft.md` : BBの補助設定資料。旧ファイル名: BB sub soft_v2.md
+  - `works/st/soft.md` : STの設定資料。旧ファイル名: ST soft_v7.md
+  - `works/st/sub-soft.md` : STの補助設定資料。旧ファイル名: ST sub soft_v2.md
+  - `works/hs/soft.md` : HSの設定資料。旧ファイル名: HS soft_v7.md
 
-この2つが「OS」= 全作品共通のベース。個別の作品(BB・ST・HSなど)の設定資料(soft)は、まだ移行していない。
+「OS」(story-os-file.md / story-os-prompt.md)が全作品共通のベース、`works/`配下がそれぞれの作品固有の設定という位置づけ。
 
 ## 運用ルール(mj汎用プロンプトと同じ考え方)
 
